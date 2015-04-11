@@ -1,0 +1,3 @@
+<?php
+
+echo "<script async src='//cdn.embedly.com/widgets/platform.js' charset='UTF-8'></script>";
