@@ -14,7 +14,7 @@ $owner = $embedlycard->getOwnerEntity();
 $owner_icon = elgg_view_entity_icon($owner, 'tiny');
 $container = $embedlycard->getContainerEntity();
 $categories = elgg_view('output/categories', $vars);
-$scraper = elgg_get_plugin_setting('scraper_system', 'embedlycards');
+$scraper = elgg_get_plugin_setting('scraper_system', 'lycavideos');
 if ($scraper == 'scraper'){
 $scraperlink = elgg_view('output/url_preview', array('value' => $estaurl));
 }
