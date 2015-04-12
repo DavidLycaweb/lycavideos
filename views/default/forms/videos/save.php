@@ -17,7 +17,7 @@ $guid = elgg_extract('guid', $vars, null);
 	<?php echo elgg_view('input/text', array('name' => 'title', 'value' => $title)); ?>
 </div>
 <div>
-	<label><?php echo elgg_echo('embedlycards:address'); ?></label><br />
+	<label><?php echo elgg_echo('lycavideos:address'); ?></label><br />
 	<?php echo elgg_view('input/text', array('name' => 'address', 'value' => $address)); ?>
 </div>
 <div>

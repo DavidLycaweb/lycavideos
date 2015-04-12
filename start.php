@@ -16,13 +16,13 @@ elgg_register_action('videos/delete', "$ruta/actions/videos/delete.php");
 elgg_register_entity_url_handler('object', 'embedlycard', 'embedlycard_url');
 elgg_register_plugin_hook_handler('register', 'menu:owner_block', 'videos_owner_block_menu');
 elgg_register_entity_type('object', 'embedlycard');
-add_group_tool_option('videos', elgg_echo('embedlycards:enablevideos'), true);
+add_group_tool_option('videos', elgg_echo('lycavideos:enablevideos'), true);
 elgg_extend_view('groups/tool_latest', 'videos/group_module');
 elgg_register_plugin_hook_handler('get_views', 'ecml', 'videos_ecml_views_hook');
-elgg_register_widget_type('videos', elgg_echo('embedlycards'), elgg_echo('embedlycards:widget:description'));
+elgg_register_widget_type('videos', elgg_echo('lycavideos'), elgg_echo('lycavideos:widget:description'));
 elgg_register_menu_item('site', array(
 		'name' => 'videos',
-		'text' => elgg_echo('embedlycards'),
+		'text' => elgg_echo('lycavideos'),
 		'href' => 'videos/all'
 	));
 
@@ -30,7 +30,7 @@ elgg_register_menu_item('site', array(
 elgg_register_event_handler('init','system','videos_init'); 
 
 function videos_ecml_views_hook($hook, $type, $return, $params) {
-	$return['object/embedlycard'] = elgg_echo('item:object:embedlycards');
+	$return['object/embedlycard'] = elgg_echo('item:object:lycavideos');
 	return $return;
 }
 

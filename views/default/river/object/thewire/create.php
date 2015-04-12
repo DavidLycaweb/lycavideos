@@ -26,7 +26,7 @@ foreach($parte as $part) {
 
 }
 
-$scraper = elgg_get_plugin_setting('scraper_system', 'embedlycards');
+$scraper = elgg_get_plugin_setting('scraper_system', 'lycavideos');
 
 if ($scraper != 'scraper'){
  $excerpt .= $excerptus;

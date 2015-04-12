@@ -17,7 +17,7 @@ $owner_icon = elgg_view_entity_icon($owner, 'tiny');
 $container = $bookmark->getContainerEntity();
 $categories = elgg_view('output/categories', $vars);
 $rel = $bookmark->address;
-$scraper = elgg_get_plugin_setting('scraper_system', 'embedlycards');
+$scraper = elgg_get_plugin_setting('scraper_system', 'lycavideos');
 $link = elgg_view('output/url', array('value' => $bookmark->address));
 
 $description = elgg_view('output/longtext', array('value' => $bookmark->description, 'class' => 'pbl'));

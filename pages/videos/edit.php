@@ -3,13 +3,13 @@ $embedlycard_guid = get_input('guid');
 $embedlycard = get_entity($embedlycard_guid);
 
 if (!elgg_instanceof($embedlycard, 'object', 'embedlycard') || !$embedlycard->canEdit()) {
-	register_error(elgg_echo('embedlycards:unknown_embedlycard'));
+	register_error(elgg_echo('lycavideos:unknown_embedlycard'));
 	forward(REFERRER);
 }
 
 $page_owner = elgg_get_page_owner_entity();
 
-$title = elgg_echo('embedlycards:edit');
+$title = elgg_echo('lycavideos:edit');
 elgg_push_breadcrumb($title);
 
 $vars = videos_prepare_form_vars($embedlycard);

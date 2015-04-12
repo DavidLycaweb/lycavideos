@@ -5,7 +5,7 @@ $entity = elgg_extract('entity', $vars);
 <p>
 <label>
 <?php 
-$titulo = elgg_echo ('embedlycards:settings:scraper');
+$titulo = elgg_echo ('lycavideos:settings:scraper');
 echo $titulo;
 ?>
 </label>
@@ -25,7 +25,7 @@ echo $selecciona;
 <p>
 <label>
 <?php 
-$titulo = elgg_echo ('embedlycards:settings:savewire');
+$titulo = elgg_echo ('lycavideos:settings:savewire');
 echo $titulo;
 ?>
 </label>

@@ -68,7 +68,7 @@ if (elgg_in_context('widgets')) {
 }
 
 $contenido = thewire_filter($post->description);
-$scraper = elgg_get_plugin_setting('scraper_system', 'embedlycards');
+$scraper = elgg_get_plugin_setting('scraper_system', 'lycavideos');
 
 if ($scraper != 'scraper'){
 $contenido .= $excerpti;

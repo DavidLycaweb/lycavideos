@@ -9,7 +9,7 @@ $object = $vars['item']->getObjectEntity();
 $objeto = $object->guid;
 $uvo = $object->address;
 $excerpt = elgg_get_excerpt($object->description);
-$scraper = elgg_get_plugin_setting('scraper_system', 'embedlycards');
+$scraper = elgg_get_plugin_setting('scraper_system', 'lycavideos');
 
 if ($scraper != 'scraper'){
 $excerpt .= "<div class='book-$objeto'>
