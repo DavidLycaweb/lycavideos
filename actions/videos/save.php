@@ -8,6 +8,10 @@
 $title = htmlspecialchars(get_input('title', '', false), ENT_QUOTES, 'UTF-8');
 $description = get_input('description');
 $address = get_input('address');
+if (videos_filter_videos($address) != '1') {
+   register_error("Invalid video URL");
+   forward(REFERER);
+}
 $access_id = get_input('access_id');
 $tags = get_input('tags');
 $guid = get_input('guid');
