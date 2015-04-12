@@ -24,7 +24,7 @@ $scraperlink = '';
 $link = elgg_view('output/url', array('href' => $embedlycard->address));
 $description = parse_urls($embedlycard->description);
 $owner_link = elgg_view('output/url', array(
-	'href' => "cards/owner/$owner->username",
+	'href' => "videos/owner/$owner->username",
 	'text' => $owner->name,
 	'is_trusted' => true,
 ));
@@ -45,7 +45,7 @@ if ($comments_count != 0) {
 
 $metadata = elgg_view_menu('entity', array(
 	'entity' => $vars['entity'],
-	'handler' => 'cards',
+	'handler' => 'videos',
 	'sort_by' => 'priority',
 	'class' => 'elgg-menu-hz',
 ));
@@ -82,9 +82,10 @@ HTML;
 
 } elseif (elgg_in_context('gallery')) {
 	echo <<<HTML
-<div class="cards-gallery-item">
+<div class="videos-gallery-item">
 	<h3>$embedlycard->title</h3>
 	$tarjeta
+	$scraperlink
 	<p class='subtitle'>$owner_link $date</p>
 </div>
 HTML;

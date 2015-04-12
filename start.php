@@ -2,9 +2,9 @@
 function videos_init() {
 $ruta = dirname(__FILE__);
 elgg_register_library('elgg:videos', "$ruta/lib/videos.php");
-elgg_register_action("videos/save", elgg_get_plugins_path() . "embedlycards/actions/videos/save.php");	
-$scraper = elgg_get_plugin_setting('scraper_system', 'embedlycards');
-$savewire = elgg_get_plugin_setting('save_wire', 'embedlycards');
+elgg_register_action("videos/save", elgg_get_plugins_path() . "lycavideos/actions/videos/save.php");	
+$scraper = elgg_get_plugin_setting('scraper_system', 'lycavideos');
+$savewire = elgg_get_plugin_setting('save_wire', 'lycavideos');
 if ($scraper != 'scraper'){
 elgg_extend_view("page/default", "videos/js");
 }
@@ -16,7 +16,7 @@ elgg_register_action('videos/delete', "$ruta/actions/videos/delete.php");
 elgg_register_entity_url_handler('object', 'embedlycard', 'embedlycard_url');
 elgg_register_plugin_hook_handler('register', 'menu:owner_block', 'videos_owner_block_menu');
 elgg_register_entity_type('object', 'embedlycard');
-add_group_tool_option('embedlycards', elgg_echo('embedlycards:enablevideos'), true);
+add_group_tool_option('videos', elgg_echo('embedlycards:enablevideos'), true);
 elgg_extend_view('groups/tool_latest', 'videos/group_module');
 elgg_register_plugin_hook_handler('get_views', 'ecml', 'videos_ecml_views_hook');
 elgg_register_widget_type('videos', elgg_echo('embedlycards'), elgg_echo('embedlycards:widget:description'));
@@ -100,11 +100,6 @@ function videos_page_handler($page) {
 			include "$pages/owner.php";
 			break;
 
-		case "shared":
-			set_input('container_guid', $page[1]);
-			include "$pages/shared.php";
-			break;
-
 		default:
 			return false;
 	}
@@ -112,10 +107,6 @@ function videos_page_handler($page) {
 	elgg_pop_context();
 	return true;
 }
-
-
-
-
 
 
 /**
@@ -146,9 +137,7 @@ function videos_url_forwarder($page) {
 		case "items":
 			$url = "{$CONFIG->wwwroot}videos/owner/{$page[0]}";
 			break;
-		case "shared":
-			$url = "{$CONFIG->wwwroot}videos/shared/{$page[0]}";
-			break;
+
 	}
 
 	register_error(elgg_echo("changeembedlycard"));
@@ -160,7 +149,6 @@ function videos_url_forwarder($page) {
  */
 function embedlycard_url($entity) {
 	global $CONFIG;
-
 	$title = $entity->title;
 	$title = elgg_get_friendly_title($title);
 	return $CONFIG->url . "videos/view/" . $entity->getGUID() . "/" . $title;
@@ -193,9 +181,9 @@ function videos_owner_block_menu($hook, $type, $return, $params) {
 */
 
 function videos_filter_videos($part) {
-$youtube = 'youtube';
+$youtube = 'youtube.com';
 $youtu = 'youtu.be';
-$vimeo = 'vimeo';
+$vimeo = 'vimeo.com';
 $vevo = 'vevo';
 $metacafe = 'metacafe';
 $vk = 'vk.com';
@@ -205,13 +193,21 @@ $blip = 'blip.tv';
 $veoh = 'veoh.com';
 $yahoo ='screen.yahoo.com';
 $wat = 'wat.tv';
+$vidme = 'vid.me';
+$magistro = 'magisto.com';
+$tynipic = 'tinypic.com/';
+$hulu = 'hulu.com';
+$sapo = 'videos.sapo.pt';
 
 if ((false !== strpos($part,$youtube)) or (false !== strpos($part,$youtu))
 or (false !== strpos($part,$vimeo)) or (false !== strpos($part,$vevo)) 
 or (false !== strpos($part,$metacafe)) or (false !== strpos($part,$vk))
 or (false !== strpos($part,$dailymotion)) or (false !== strpos($part,$tutv))
 or (false !== strpos($part,$blip)) or (false !== strpos($part,$veoh))
-or (false !== strpos($part,$yahoo)) or (false !== strpos($part,$wat))) {
+or (false !== strpos($part,$yahoo)) or (false !== strpos($part,$wat))
+or (false !== strpos($part,$vidme)) or (false !== strpos($part,$magistro))
+or (false !== strpos($part,$tynipic)) or (false !== strpos($part,$hulu))
+or (false !== strpos($part,$sapo))) {
 $validating = '1';
 }
 else {

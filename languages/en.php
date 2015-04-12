@@ -46,19 +46,18 @@ $english = array(
 	'embedlycards:enableembedlycards' => 'Enable group videos',
 	'embedlycards:nogroup' => 'This group does not have any video yet',
 	'embedlycards:more' => 'More videos',
-
+    'option:embedly' => 'embed.ly',
+	'option:scraper' => 'hypeScraper',
 	'embedlycards:no_title' => 'No title',
+	'embedlycards:settings:scraper' => 'Embed system',
+	'embedlycards:settings:savewire' => 'Save videos from Thewire',
+	
+	'river:create:object:default' => '%s created a video %s',
 
-	/**
-	 * Widget 
-	 */
 	'embedlycards:widget:description' => "Display your latest videos.",
 
-	/**
-	 * Status messages
-	 */
 
-	'embedlycards:save:success' => "Your item was successfully shared.",
+
 	'embedlycards:delete:success' => "Your video was deleted.",
 
 	/**

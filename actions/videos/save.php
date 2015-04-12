@@ -11,8 +11,7 @@ $address = get_input('address');
 $access_id = get_input('access_id');
 $tags = get_input('tags');
 $guid = get_input('guid');
-$share = get_input('share');
-$container_guid = get_input('container_guid', elgg_get_logged_in_user_guid());
+$container_guid = get_input('container_guid');
 
 elgg_make_sticky_form('videos');
 
@@ -27,12 +26,10 @@ if (!$title || !$address) {
 	forward(REFERER);
 }
 
-
-
 if ($guid == 0) {
 	$card = new ElggObject;
 	$card->subtype = "embedlycard";
-	$card->container_guid = (int)get_input('container_guid', $_SESSION['user']->getGUID());
+	$card->container_guid = $container_guid;
 	$new = true;
 } else {
 	$card = get_entity($guid);
@@ -54,13 +51,6 @@ if ($card->save()) {
 
 	elgg_clear_sticky_form('videos');
 
-	// @todo
-	if (is_array($shares) && sizeof($shares) > 0) {
-		foreach($shares as $share) {
-			$share = (int) $share;
-			add_entity_relationship($card->getGUID(), 'share', $share);
-		}
-	}
 	system_message(elgg_echo('videos:save:success'));
 
 	//add to river only if new

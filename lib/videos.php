@@ -10,7 +10,6 @@ function videos_prepare_form_vars($embedlycard = null) {
 		'description' => get_input('description', ''),
 		'access_id' => ACCESS_DEFAULT,
 		'tags' => '',
-		'shares' => array(),
 		'container_guid' => elgg_get_page_owner_guid(),
 		'guid' => null,
 		'entity' => $embedlycard,
