@@ -14,6 +14,10 @@ admin panel.
 
 -This plugin overwrites the bookmarks and thewire object view to embed all media url content on media cards(not just videos).
 
+-This plugin recommends hypeScraper plugin.
+
+-You can choose embed.ly system or hypeScraper to embed the media content.
+
 This plugin embeds all media url related content and detects video sources to create video objects with the url. 
 
 Compatible video sources:
